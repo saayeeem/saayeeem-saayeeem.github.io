@@ -131,21 +131,38 @@
       border-radius: 0.5rem;
       box-shadow: 0 2px 8px rgba(0,0,0,0.1);
     }
+    /* Card box to control card height and width */
+    .card-box {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+      max-width: 440px;
+      min-height: 420px;
+      height: 420px;
+      margin: 0 auto;
+      background: #fff;
+      border-radius: 1.2rem;
+      box-shadow: 0 4px 24px rgba(0,0,0,0.10);
+      padding: 0.5rem;
+    }
     /* Card flip styles */
     .card-flip {
       perspective: 1200px;
       width: 100%;
-      max-width: 420px;
+      max-width: 400px;
+      min-height: 380px;
+      height: 380px;
       margin: 0 auto;
       display: flex;
       justify-content: center;
       align-items: center;
-      min-height: 520px;
     }
     .card-inner {
       position: relative;
       width: 100%;
-      min-height: 520px;
+      height: 100%;
+      min-height: unset;
       transition: transform 0.7s cubic-bezier(.4,2,.6,1);
       transform-style: preserve-3d;
     }
@@ -157,12 +174,13 @@
       background: var(--primary-color);
       border-radius: 1rem;
       box-shadow: 0 2px 12px rgba(0,0,0,0.08);
-      padding: 3rem 2rem;
+      padding: 1.2rem 1rem 1.2rem 1rem;
       text-align: center;
       display: flex;
       flex-direction: column;
       justify-content: center;
       align-items: center;
+      overflow: hidden;
     }
     .card-front {
       z-index: 2;
@@ -175,18 +193,19 @@
       transform: rotateY(180deg);
     }
     @media (max-width: 600px) {
-      .container {
-        padding: 2rem 1.2rem;
+      .card-box {
+        max-width: 98vw;
+        min-height: 440px;
+        height: 440px;
+        padding: 0.2rem;
       }
-      .welcome-img {
-        width: 90px;
-        height: 90px;
+      .card-flip {
+        max-width: 98vw;
+        min-height: 400px;
+        height: 400px;
       }
-      h1 {
-        font-size: 1.5rem;
-      }
-      p {
-        font-size: 0.95rem;
+      .card-inner, .card-front, .card-back {
+        padding: 0.7rem 0.2rem;
       }
     }
     @media (max-width: 700px) {
@@ -207,29 +226,31 @@
 </head>
 <body>
   <div class="container">
-    <div class="card-flip" tabindex="0" aria-label="Business card. Click or press Enter/Space to flip.">
-      <div class="card-inner">
-        <div class="card-front">
-          <img src="sayem.png" alt="Sayem's Avatar" class="welcome-img">
-          <h1>Hello, I'm Sayem</h1>
-          <h2>AI Researcher | Developer | Visionary Thinker</h2>
-          <p>
-            I’m passionate about building intelligent systems that bridge the gap between humans and machines.<br>
-            My work blends deep learning, computer vision, NLP, and cognitive-inspired AI.
-          </p>
-          <a href="https://saayeeem.github.io/website/" class="go-btn">Enter My Universe</a>
-          <a href="https://saayeeem.github.io/website/assets/cv/Mohammad_Sayem_Chowdhury_CV.pdf" class="cv-btn" download>📄 Download CV</a>
-        </div>
-        <div class="card-back">
-          <div class="info-row">
-            <div class="contact">
-              <p><strong>📧 Email:</strong> <a href="mailto:m.sayem.c@gmail.com">m.sayem.c@gmail.com</a></p>
-              <p><strong>🌐 GitHub:</strong> <a href="https://github.com/saayeeem" target="_blank">saayeeem</a></p>
-              <p><strong>🔗 LinkedIn:</strong> <a href="https://www.linkedin.com/in/mohammad-sayem-chowdhury" class="linkedin" target="_blank">mohammad-sayem-chowdhury</a></p>
-              <p><strong>📍 Location:</strong> Chattogram, Bangladesh</p>
-            </div>
-            <div class="qr-code">
-              <img src="Sayem_CV_QR.png" alt="QR Code to Website or CV">
+    <div class="card-box">
+      <div class="card-flip" tabindex="0" aria-label="Business card. Click or press Enter/Space to flip.">
+        <div class="card-inner">
+          <div class="card-front">
+            <img src="sayem.png" alt="Sayem's Avatar" class="welcome-img">
+            <h1>Hello, I'm Sayem</h1>
+            <h2>AI Researcher | Developer | Visionary Thinker</h2>
+            <p>
+              I’m passionate about building intelligent systems that bridge the gap between humans and machines.<br>
+              My work blends deep learning, computer vision, NLP, and cognitive-inspired AI.
+            </p>
+            <a href="https://saayeeem.github.io/website/" class="go-btn">Enter My Universe</a>
+            <a href="https://saayeeem.github.io/website/assets/cv/Mohammad_Sayem_Chowdhury_CV.pdf" class="cv-btn" download>📄 Download CV</a>
+          </div>
+          <div class="card-back">
+            <div class="info-row">
+              <div class="contact">
+                <p><strong>📧 Email:</strong> <a href="mailto:m.sayem.c@gmail.com">m.sayem.c@gmail.com</a></p>
+                <p><strong>🌐 GitHub:</strong> <a href="https://github.com/saayeeem" target="_blank">saayeeem</a></p>
+                <p><strong>🔗 LinkedIn:</strong> <a href="https://www.linkedin.com/in/mohammad-sayem-chowdhury" class="linkedin" target="_blank">mohammad-sayem-chowdhury</a></p>
+                <p><strong>📍 Location:</strong> Chattogram, Bangladesh</p>
+              </div>
+              <div class="qr-code">
+                <img src="Sayem_CV_QR.png" alt="QR Code to Website or CV">
+              </div>
             </div>
           </div>
         </div>
