@@ -6,7 +6,7 @@
   <title>Mohammad Sayem Chowdhury</title>
   <style>
     :root {
-      --bg-color:  #f2f4f8;
+      --bg-color: #f2f4f8;
       --primary-color: #ffffffee;
       --text-color: #121212;
       --accent-color: #0051AD;
@@ -29,7 +29,7 @@
       box-shadow: 0 2px 12px rgba(0,0,0,0.08);
       padding: 3rem 2rem;
       text-align: center;
-      max-width: 450px;
+      max-width: 500px;
       margin: 2rem;
     }
     .welcome-img {
@@ -57,8 +57,10 @@
       line-height: 1.6;
       margin-bottom: 2rem;
     }
-    .go-btn {
+    .go-btn, .cv-btn {
+      display: inline-block;
       padding: 0.9rem 2.5rem;
+      margin: 0.5rem;
       background: var(--accent-color);
       color: #fff;
       border: none;
@@ -69,8 +71,35 @@
       transition: background 0.3s ease;
       box-shadow: 0 6px 15px -6px #0051ad88;
     }
-    .go-btn:hover {
+    .go-btn:hover, .cv-btn:hover {
       background: #0070e0;
+    }
+    .contact {
+      text-align: left;
+      font-size: 0.95rem;
+      line-height: 1.8;
+      background: #fafbfc;
+      border-radius: 0.8rem;
+      padding: 1.2rem 1rem;
+      box-shadow: 0 1px 6px rgba(0,0,0,0.05);
+      margin-top: 1.5rem;
+    }
+    .contact a {
+      color: var(--accent-color);
+      text-decoration: none;
+      font-weight: 500;
+    }
+    .contact a:hover {
+      text-decoration: underline;
+    }
+    .qr-code {
+      margin-top: 1.5rem;
+    }
+    .qr-code img {
+      width: 100px;
+      height: 100px;
+      border-radius: 0.5rem;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
     }
     @media (max-width: 600px) {
       .container {
@@ -96,10 +125,22 @@
     <h2>AI Researcher | Developer | Visionary Thinker</h2>
     <p>
       I’m passionate about building intelligent systems that bridge the gap between humans and machines.<br>
-      My work blends deep learning, computer vision, NLP, and cognitive-inspired AI.<br><br>
-      Ready to explore my world?
+      My work blends deep learning, computer vision, NLP, and cognitive-inspired AI.
     </p>
     <a href="https://saayeeem.github.io/website/" class="go-btn">Enter My Universe</a>
+    <a href="cv_sayem_chowdhury.pdf" class="cv-btn" download>📄 Download CV</a>
+
+    <div class="contact">
+      <p><strong>📧 Email:</strong> <a href="mailto:m.sayem.c@gmail.com">m.sayem.c@gmail.com</a></p>
+      <p><strong>🌐 GitHub:</strong> <a href="https://github.com/saayeeem" target="_blank">github.com/saayeeem</a></p>
+      <p><strong>🔗 LinkedIn:</strong> <a href="https://linkedin.com/in/saayeeem" target="_blank">linkedin.com/in/saayeeem</a></p>
+      <p><strong>📍 Location:</strong> Nandankanan, Chattogram, Bangladesh</p>
+    </div>
+
+    <div class="qr-code">
+      <p><strong>🔲 Scan to Visit:</strong></p>
+      <img src="Sayem_CV_QR.png" alt="QR Code to Website or CV">
+    </div>
   </div>
 </body>
 </html>
