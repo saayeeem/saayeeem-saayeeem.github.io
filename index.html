@@ -3,33 +3,34 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Welcome to My Website</title>
+  <title>Mohammad Sayem Chowdhury</title>
   <style>
     :root {
-      --bg-color:  #e3e4e5;
+      --bg-color:  #f2f4f8;
       --primary-color: #ffffffee;
-      --text-color: #070708;
+      --text-color: #121212;
+      --accent-color: #0051AD;
     }
     body {
       background-color: var(--bg-color);
       color: var(--text-color);
-      font-family: "Montserrat","Arial","Calibri","Georgia","Helvetica","Open Sans","Tahoma","Times New Roman","Verdana";
+      font-family: "Montserrat", "Segoe UI", "Open Sans", sans-serif;
       margin: 0;
       padding: 0;
-      min-height: 100vh;
       display: flex;
       flex-direction: column;
       justify-content: center;
       align-items: center;
+      min-height: 100vh;
     }
     .container {
       background: var(--primary-color);
       border-radius: 1rem;
-      box-shadow: 0 1px 8px rgba(0,0,0,0.1);
+      box-shadow: 0 2px 12px rgba(0,0,0,0.08);
       padding: 3rem 2rem;
-      margin-top: 3rem;
       text-align: center;
-      max-width: 400px;
+      max-width: 450px;
+      margin: 2rem;
     }
     .welcome-img {
       width: 120px;
@@ -37,66 +38,68 @@
       object-fit: cover;
       border-radius: 50%;
       margin-bottom: 1.5rem;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.12);
-      border: 4px solid #e3e4e5;
-      background: #fff;
+      border: 4px solid var(--bg-color);
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
     }
     h1 {
-      color: var(--text-color);
-      font-family: inherit;
-      margin-bottom: 1rem;
+      margin-bottom: 0.5rem;
+      font-size: 1.8rem;
+    }
+    h2 {
+      margin-top: 0;
+      font-size: 1.1rem;
+      font-weight: 500;
+      color: #555;
     }
     p {
+      font-size: 1.05rem;
       color: #333;
+      line-height: 1.6;
       margin-bottom: 2rem;
-      font-size: 1.2rem;
     }
     .go-btn {
-      padding: 0.8rem 2.2rem;
-      background: #0051AD;
+      padding: 0.9rem 2.5rem;
+      background: var(--accent-color);
       color: #fff;
       border: none;
       border-radius: 2rem;
-      font-size: 1.1rem;
-      text-decoration: none;
+      font-size: 1.05rem;
       font-weight: bold;
-      transition: background 0.3s;
-      cursor: pointer;
-      box-shadow: 0 5px 15px -8px #0051ad77;
-      display: inline-block;
+      text-decoration: none;
+      transition: background 0.3s ease;
+      box-shadow: 0 6px 15px -6px #0051ad88;
     }
     .go-btn:hover {
-      background: #0078ff;
+      background: #0070e0;
     }
     @media (max-width: 600px) {
       .container {
-        padding: 2rem 1rem;
-      }
-      h1 {
-        font-size: 1.4rem;
-      }
-      p {
-        font-size: 1rem;
+        padding: 2rem 1.2rem;
       }
       .welcome-img {
         width: 90px;
         height: 90px;
+      }
+      h1 {
+        font-size: 1.5rem;
+      }
+      p {
+        font-size: 0.95rem;
       }
     }
   </style>
 </head>
 <body>
   <div class="container">
-    <!-- Example online avatar image, you can use any image URL you like -->
-    <img src="sayem.png" alt="Sayeem's Avatar" class="welcome-img">
-    <img src="https://avatars.githubusercontent.com/u/6710589?v=4" alt="Sayeem's Avatar" class="welcome-img">
-    <h1>Welcome!</h1>
+    <img src="sayem.png" alt="Sayem's Avatar" class="welcome-img">
+    <h1>Hello, I'm Sayem</h1>
+    <h2>AI Researcher | Developer | Visionary Thinker</h2>
     <p>
-      Thank you for visiting my landing page.<br>
-      To explore my main website and learn more about me and my projects,<br>
-      please click the button below.
+      I’m passionate about building intelligent systems that bridge the gap between humans and machines.<br>
+      My work blends deep learning, computer vision, NLP, and cognitive-inspired AI.<br><br>
+      Ready to explore my world?
     </p>
-    <a href="https://saayeeem.github.io/website/" class="go-btn">Visit My Website</a>
+    <a href="https://saayeeem.github.io/website/" class="go-btn">Enter My Universe</a>
   </div>
 </body>
 </html>
