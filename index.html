@@ -77,9 +77,11 @@
     .info-row {
       display: flex;
       justify-content: space-between;
-      align-items: flex-start;
+      align-items: stretch;
       gap: 2rem;
       margin-top: 1.5rem;
+      width: 100%;
+      max-width: 700px;
     }
     .contact {
       text-align: left;
@@ -91,14 +93,30 @@
       box-shadow: 0 1px 6px rgba(0,0,0,0.05);
       margin-top: 1.5rem;
       flex: 2 1 0;
+      min-width: 0;
+      word-break: break-word;
+    }
+    .contact p {
+      display: flex;
+      align-items: center;
+      gap: 0.5em;
+      margin: 0.2em 0;
     }
     .contact a {
       color: var(--accent-color);
       text-decoration: none;
       font-weight: 500;
+      display: flex;
+      align-items: center;
+      gap: 0.3em;
     }
-    .contact a:hover {
-      text-decoration: underline;
+    .contact a.linkedin::before {
+      content: '';
+      display: inline-block;
+      width: 18px;
+      height: 18px;
+      background: url('https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linkedin/linkedin-original.svg') no-repeat center/contain;
+      margin-right: 0.3em;
     }
     .qr-code {
       margin-top: 1.5rem;
@@ -112,6 +130,45 @@
       height: 100px;
       border-radius: 0.5rem;
       box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+    /* Card flip styles */
+    .card-flip {
+      perspective: 1200px;
+      width: 100%;
+      max-width: 500px;
+      margin: 0 auto;
+    }
+    .card-inner {
+      position: relative;
+      width: 100%;
+      min-height: 480px;
+      transition: transform 0.8s cubic-bezier(.4,2,.6,1);
+      transform-style: preserve-3d;
+    }
+    .card-flip:hover .card-inner, .card-flip:focus-within .card-inner {
+      transform: rotateY(180deg);
+    }
+    .card-front, .card-back {
+      position: absolute;
+      width: 100%;
+      backface-visibility: hidden;
+      background: var(--primary-color);
+      border-radius: 1rem;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+      padding: 3rem 2rem;
+      text-align: center;
+      min-height: 480px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+    .card-front {
+      z-index: 2;
+    }
+    .card-back {
+      transform: rotateY(180deg);
+      z-index: 1;
     }
     @media (max-width: 600px) {
       .container {
@@ -132,36 +189,86 @@
       .info-row {
         flex-direction: column;
         gap: 0.5rem;
+        max-width: 100%;
       }
       .qr-code {
         margin-top: 1rem;
+      }
+      .card-front, .card-back {
+        padding: 2rem 0.5rem;
+        min-height: 520px;
       }
     }
   </style>
 </head>
 <body>
   <div class="container">
-    <img src="sayem.png" alt="Sayem's Avatar" class="welcome-img">
-    <h1>Hello, I'm Sayem</h1>
-    <h2>AI Researcher | Developer | Visionary Thinker</h2>
-    <p>
-      I’m passionate about building intelligent systems that bridge the gap between humans and machines.<br>
-      My work blends deep learning, computer vision, NLP, and cognitive-inspired AI.
-    </p>
-    <a href="https://saayeeem.github.io/website/" class="go-btn">Enter My Universe</a>
-    <a href="https://saayeeem.github.io/website/assets/cv/Mohammad_Sayem_Chowdhury_CV.pdf" class="cv-btn" download>📄 Download CV</a>
-
-    <div class="info-row">
-      <div class="contact">
-        <p><strong>📧 Email:</strong> <a href="mailto:m.sayem.c@gmail.com">m.sayem.c@gmail.com</a></p>
-        <p><strong>🌐 GitHub:</strong> <a href="https://github.com/saayeeem" target="_blank">saayeeem</a></p>
-        <p><strong>🔗 LinkedIn:</strong> <a href="https://www.linkedin.com/in/mohammad-sayem-chowdhury" target="_blank">mohammad-sayem-chowdhury</a></p>
-        <p><strong>📍 Location:</strong> Chattogram, Bangladesh</p>
-      </div>
-      <div class="qr-code">
-        <img src="Sayem_CV_QR.png" alt="QR Code to Website or CV">
+    <div class="card-flip">
+      <div class="card-inner">
+        <div class="card-front">
+          <img src="sayem.png" alt="Sayem's Avatar" class="welcome-img">
+          <h1>Hello, I'm Sayem</h1>
+          <h2>AI Researcher | Developer | Visionary Thinker</h2>
+          <p>
+            I’m passionate about building intelligent systems that bridge the gap between humans and machines.<br>
+            My work blends deep learning, computer vision, NLP, and cognitive-inspired AI.
+          </p>
+          <a href="https://saayeeem.github.io/website/" class="go-btn">Enter My Universe</a>
+          <a href="https://saayeeem.github.io/website/assets/cv/Mohammad_Sayem_Chowdhury_CV.pdf" class="cv-btn" download>📄 Download CV</a>
+        </div>
+        <div class="card-back">
+          <div class="info-row">
+            <div class="contact">
+              <p><strong>📧 Email:</strong> <a href="mailto:m.sayem.c@gmail.com">m.sayem.c@gmail.com</a></p>
+              <p><strong>🌐 GitHub:</strong> <a href="https://github.com/saayeeem" target="_blank">saayeeem</a></p>
+              <p><strong>🔗 LinkedIn:</strong> <a href="https://www.linkedin.com/in/mohammad-sayem-chowdhury" class="linkedin" target="_blank">mohammad-sayem-chowdhury</a></p>
+              <p><strong>📍 Location:</strong> Chattogram, Bangladesh</p>
+            </div>
+            <div class="qr-code">
+              <img src="Sayem_CV_QR.png" alt="QR Code to Website or CV">
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
+  <script>
+    // Add a real card feel: flip on click/tap, shadow on hover, and a little shake on mouse enter
+    const cardFlip = document.querySelector('.card-flip');
+    const cardInner = document.querySelector('.card-inner');
+    let isFlipped = false;
+
+    // Flip on click/tap
+    cardFlip.addEventListener('click', function () {
+      isFlipped = !isFlipped;
+      cardInner.style.transform = isFlipped ? 'rotateY(180deg)' : '';
+    });
+
+    // Add shadow and shake on mouse enter
+    cardFlip.addEventListener('mouseenter', function () {
+      cardInner.style.boxShadow = '0 8px 32px rgba(0,0,0,0.18)';
+      cardInner.animate([
+        { transform: cardInner.style.transform + ' rotateZ(0deg)' },
+        { transform: cardInner.style.transform + ' rotateZ(2deg)' },
+        { transform: cardInner.style.transform + ' rotateZ(-2deg)' },
+        { transform: cardInner.style.transform + ' rotateZ(0deg)' }
+      ], {
+        duration: 350,
+        easing: 'ease-in-out'
+      });
+    });
+    cardFlip.addEventListener('mouseleave', function () {
+      cardInner.style.boxShadow = '';
+    });
+    // Keyboard accessibility: flip on Enter/Space
+    cardFlip.tabIndex = 0;
+    cardFlip.addEventListener('keydown', function(e) {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        isFlipped = !isFlipped;
+        cardInner.style.transform = isFlipped ? 'rotateY(180deg)' : '';
+      }
+    });
+  </script>
 </body>
 </html>
