@@ -2,298 +2,291 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <title>Sayem Chowdhury - Business Card</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Mohammad Sayem Chowdhury</title>
   <style>
-    :root {
-      --bg-color: #f2f4f8;
-      --primary-color: #ffffffee;
-      --text-color: #121212;
-      --accent-color: #0051AD;
-    }
     body {
-      background-color: var(--bg-color);
-      color: var(--text-color);
-      font-family: "Montserrat", "Segoe UI", "Open Sans", sans-serif;
-      margin: 0;
-      padding: 0;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
+      background: #e8ecf3;
       min-height: 100vh;
-    }
-    .container {
-      background: var(--primary-color);
-      border-radius: 1rem;
-      box-shadow: 0 2px 12px rgba(0,0,0,0.08);
-      padding: 3rem 2rem;
-      text-align: center;
-      max-width: 500px;
-      margin: 2rem;
-    }
-    .welcome-img {
-      width: 120px;
-      height: 120px;
-      object-fit: cover;
-      border-radius: 50%;
-      margin-bottom: 1.5rem;
-      border: 4px solid var(--bg-color);
-      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-    }
-    h1 {
-      margin-bottom: 0.5rem;
-      font-size: 1.8rem;
-    }
-    h2 {
-      margin-top: 0;
-      font-size: 1.1rem;
-      font-weight: 500;
-      color: #555;
-    }
-    p {
-      font-size: 1.05rem;
-      color: #333;
-      line-height: 1.6;
-      margin-bottom: 2rem;
-    }
-    .go-btn, .cv-btn {
-      display: inline-block;
-      padding: 0.9rem 2.5rem;
-      margin: 0.5rem;
-      background: var(--accent-color);
-      color: #fff;
-      border: none;
-      border-radius: 2rem;
-      font-size: 1.05rem;
-      font-weight: bold;
-      text-decoration: none;
-      transition: background 0.3s ease;
-      box-shadow: 0 6px 15px -6px #0051ad88;
-    }
-    .go-btn:hover, .cv-btn:hover {
-      background: #0070e0;
-    }
-    .info-row {
-      display: flex;
-      justify-content: space-between;
-      align-items: stretch;
-      gap: 2rem;
-      margin-top: 1.5rem;
-      width: 100%;
-      max-width: 700px;
-    }
-    .contact {
-      text-align: left;
-      font-size: 0.95rem;
-      line-height: 1.8;
-      background: #fafbfc;
-      border-radius: 0.8rem;
-      padding: 1.2rem 1rem;
-      box-shadow: 0 1px 6px rgba(0,0,0,0.05);
-      margin-top: 1.5rem;
-      flex: 2 1 0;
-      min-width: 0;
-      word-break: break-word;
-    }
-    .contact p {
-      display: flex;
-      align-items: center;
-      gap: 0.5em;
-      margin: 0.2em 0;
-    }
-    .contact a {
-      color: var(--accent-color);
-      text-decoration: none;
-      font-weight: 500;
-      display: flex;
-      align-items: center;
-      gap: 0.3em;
-    }
-    .contact a.linkedin::before {
-      content: '';
-      display: inline-block;
-      width: 18px;
-      height: 18px;
-      background: url('https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linkedin/linkedin-original.svg') no-repeat center/contain;
-      margin-right: 0.3em;
-    }
-    .qr-code {
-      margin-top: 1.5rem;
-      flex: 1 1 0;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-    }
-    .qr-code img {
-      width: 100px;
-      height: 100px;
-      border-radius: 0.5rem;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-    }
-    /* Card box to control card height and width */
-    .card-box {
       display: flex;
       justify-content: center;
       align-items: center;
-      width: 100%;
-      max-width: 440px;
-      min-height: 420px;
-      height: 420px;
-      margin: 0 auto;
-      background: #fff;
-      border-radius: 1.2rem;
-      box-shadow: 0 4px 24px rgba(0,0,0,0.10);
-      padding: 0.5rem;
+      margin: 0;
+      font-family: "Montserrat", "Segoe UI", "Open Sans", sans-serif;
     }
-    /* Card flip styles */
-    .card-flip {
+    .scene {
+      width: 370px;
+      height: 220px;
       perspective: 1200px;
-      width: 100%;
-      max-width: 400px;
-      min-height: 380px;
-      height: 380px;
-      margin: 0 auto;
-      display: flex;
-      justify-content: center;
-      align-items: center;
+      margin: 2rem auto;
+      /* extra depth for realism */
     }
-    .card-inner {
-      position: relative;
+    .card {
       width: 100%;
       height: 100%;
-      min-height: unset;
-      transition: transform 0.7s cubic-bezier(.4,2,.6,1);
+      position: relative;
+      transition: transform 1s cubic-bezier(.4,2,.6,1);
       transform-style: preserve-3d;
+      box-shadow: 0 14px 42px rgba(0,81,173,0.18), 0 5px 18px rgba(0,0,0,0.10);
+      border-radius: 1.2rem;
+      background: transparent;
     }
-    .card-front, .card-back {
+    .card.flipped {
+      transform: rotateY(180deg);
+    }
+    .card-face {
       position: absolute;
       width: 100%;
       height: 100%;
+      border-radius: 1.2rem;
+      background: #fff;
+      box-shadow: 0 1px 6px rgba(0,0,0,0.06);
+      top: 0;
+      left: 0;
       backface-visibility: hidden;
-      background: var(--primary-color);
-      border-radius: 1rem;
-      box-shadow: 0 2px 12px rgba(0,0,0,0.08);
-      padding: 1.2rem 1rem 1.2rem 1rem;
-      text-align: center;
+      overflow: hidden;
       display: flex;
       flex-direction: column;
-      justify-content: center;
       align-items: center;
-      overflow: hidden;
+      justify-content: center;
+      padding: 1.5rem 1.2rem;
     }
-    .card-front {
+    .card-face.front {
+      z-index: 2;
+      background: linear-gradient(120deg, #f6faff 60%, #e8eaf5 100%);
+      border: 2px solid #0051ad22;
+      box-shadow: 0 2px 12px #0051ad11;
+      position: absolute;
+    }
+    .card-face.back {
+      transform: rotateY(180deg);
+      background: linear-gradient(120deg, #e8eaf5 60%, #f6faff 100%);
+      border: 2px solid #0051ad22;
+      box-shadow: 0 2px 12px #0051ad11;
+      position: absolute;
+    }
+    .avatar {
+      width: 74px;
+      height: 74px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 3px solid #fff;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.13);
+      margin-bottom: 0.7rem;
+      background: #e8eaec;
       z-index: 2;
     }
-    .card-back {
-      transform: rotateY(180deg);
-      z-index: 1;
+    .name {
+      font-size: 1.15rem;
+      font-weight: 700;
+      margin: 0 0 0.13rem 0;
+      letter-spacing: 0.015em;
+      color: #0051AD;
+      text-shadow: 0 1px 0 #fff, 0 2px 10px #0051ad12;
     }
-    .card-flip.flipped .card-inner {
-      transform: rotateY(180deg);
+    .title {
+      font-size: 0.95rem;
+      color: #444;
+      margin-bottom: .5rem;
+      font-weight: 500;
+      letter-spacing: .02em;
+      line-height: 1.3;
     }
-    @media (max-width: 600px) {
-      .card-box {
-        max-width: 98vw;
-        min-height: 440px;
-        height: 440px;
-        padding: 0.2rem;
-      }
-      .card-flip {
-        max-width: 98vw;
-        min-height: 400px;
-        height: 400px;
-      }
-      .card-inner, .card-front, .card-back {
-        padding: 0.7rem 0.2rem;
-      }
+    .desc {
+      font-size: 0.91rem;
+      color: #222;
+      font-weight: 500;
+      line-height: 1.5;
+      margin-bottom: .65rem;
+      text-align: center;
     }
-    @media (max-width: 700px) {
-      .info-row {
-        flex-direction: column;
-        gap: 0.5rem;
-        max-width: 100%;
+    .front .btn-row {
+      margin: 0.25rem 0 0.1rem 0;
+      display: flex;
+      gap: 0.7rem;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    .business-btn {
+      padding: 0.46rem 1.12rem;
+      background: linear-gradient(90deg, #0051AD 60%, #389bff 100%);
+      color: #fff;
+      border-radius: 1.1rem;
+      font-size: .96rem;
+      font-weight: 600;
+      text-decoration: none;
+      box-shadow: 0 2px 10px -7px #0051ad66;
+      transition: background .22s, box-shadow .22s;
+      border: none;
+      outline: none;
+      cursor: pointer;
+      display: inline-block;
+      border-bottom: 2px solid #0051ad55;
+      letter-spacing: .02em;
+    }
+    .business-btn:hover, .business-btn:focus {
+      background: linear-gradient(90deg, #0070e0 60%, #389bff 100%);
+      box-shadow: 0 5px 16px -7px #0051ad44;
+    }
+    .flip-btn {
+      margin: 0.75rem 0 0 0;
+      padding: 0.38rem 1.18rem;
+      font-size: .95rem;
+      background: #fff;
+      color: #0051AD;
+      border: 2px solid #0051AD;
+      border-radius: 1.1rem;
+      box-shadow: 0 2px 8px -7px #0051ad55;
+      cursor: pointer;
+      font-weight: 700;
+      transition: background 0.2s, color 0.2s;
+      outline: none;
+      display: inline-block;
+      letter-spacing: .01em;
+    }
+    .flip-btn:hover, .flip-btn:focus {
+      background: #0051AD;
+      color: #fff;
+    }
+    .flip-hint {
+      font-size: 0.91rem;
+      color: #95a3b3;
+      margin-top: 0.45rem;
+      user-select: none;
+      letter-spacing: .01em;
+      font-style: italic;
+      text-align: center;
+    }
+    .back .contact-list {
+      list-style: none;
+      padding: 0;
+      margin: 0 0 0.5rem 0;
+      font-size: .95rem;
+      width: 100%;
+      color: #232323;
+      text-align: left;
+    }
+    .back .contact-list li {
+      margin: 0.20em 0;
+      display: flex;
+      align-items: center;
+      gap: 0.35em;
+      word-break: break-all;
+    }
+    .back .contact-list a {
+      color: #0051AD;
+      text-decoration: none;
+      font-weight: 500;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.18em;
+    }
+    .back .contact-list a.linkedin::before {
+      content: '';
+      display: inline-block;
+      width: 15px;
+      height: 15px;
+      background: url('https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linkedin/linkedin-original.svg') no-repeat center/contain;
+      margin-right: 0.12em;
+      vertical-align: middle;
+    }
+    .qr-section {
+      margin-top: 0.4rem;
+      text-align: center;
+      width: 100%;
+    }
+    .qr-section img {
+      width: 58px;
+      height: 58px;
+      border-radius: 0.32rem;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.11);
+      background: #fcfcfc;
+      display: inline-block;
+      border: 2px solid #e0e0e0;
+    }
+    .qr-label {
+      font-size: 0.86rem;
+      color: #6d7480;
+      margin-top: 0.19rem;
+      display: block;
+      letter-spacing: .01em;
+    }
+    @media (max-width: 500px) {
+      .scene {
+        width: 99vw;
+        height: 56vw;
+        min-width: 220px;
+        min-height: 135px;
+        max-width: 355px;
+        max-height: 192px;
       }
-      .qr-code {
-        margin-top: 1rem;
-      }
-      .card-inner, .card-front, .card-back {
-        min-height: 540px;
-        padding: 2rem 0.5rem;
-      }
+      .card-face { padding: 0.7rem 0.3rem; }
+      .avatar { width: 48px; height: 48px;}
+      .name { font-size: 1.01rem;}
+      .desc { font-size: 0.89rem;}
+      .title { font-size: 0.87rem;}
+      .business-btn, .flip-btn { font-size: 0.89rem; padding: 0.31rem 0.8rem;}
     }
   </style>
 </head>
 <body>
-  <div class="container">
-    <div class="card-box">
-      <div class="card-flip" tabindex="0" aria-label="Business card. Click or press Enter/Space to flip.">
-        <div class="card-inner">
-          <div class="card-front">
-            <img src="sayem.png" alt="Sayem's Avatar" class="welcome-img">
-            <h1>Hello, I'm Sayem</h1>
-            <h2>AI Researcher | Developer | Visionary Thinker</h2>
-            <p>
-              I’m passionate about building intelligent systems that bridge the gap between humans and machines.<br>
-              My work blends deep learning, computer vision, NLP, and cognitive-inspired AI.
-            </p>
-            <a href="https://saayeeem.github.io/website/" class="go-btn">Enter My Universe</a>
-            <a href="https://saayeeem.github.io/website/assets/cv/Mohammad_Sayem_Chowdhury_CV.pdf" class="cv-btn" download>📄 Download CV</a>
-          </div>
-          <div class="card-back">
-            <div class="info-row">
-              <div class="contact">
-                <p><strong>📧 Email:</strong> <a href="mailto:m.sayem.c@gmail.com">m.sayem.c@gmail.com</a></p>
-                <p><strong>🌐 GitHub:</strong> <a href="https://github.com/saayeeem" target="_blank">saayeeem</a></p>
-                <p><strong>🔗 LinkedIn:</strong> <a href="https://www.linkedin.com/in/mohammad-sayem-chowdhury" class="linkedin" target="_blank">mohammad-sayem-chowdhury</a></p>
-                <p><strong>📍 Location:</strong> Chattogram, Bangladesh</p>
-              </div>
-              <div class="qr-code">
-                <img src="Sayem_CV_QR.png" alt="QR Code to Website or CV">
-              </div>
-            </div>
-          </div>
+  <div class="scene">
+    <div class="card" id="bizCard" tabindex="0" aria-label="Business card. Use Flip button, or tap/click/Enter/Space.">
+      <div class="card-face front">
+        <img src="sayem.png" alt="Sayem's Avatar" class="avatar" />
+        <div class="name">Mohammad Sayem Chowdhury</div>
+        <div class="title">AI Researcher &nbsp;|&nbsp; Developer &nbsp;|&nbsp; Visionary Thinker</div>
+        <div class="desc">
+          I’m passionate about building intelligent systems that bridge the gap between humans and machines.<br>
+          My work blends deep learning, computer vision, NLP, and cognitive-inspired AI.
         </div>
+        <div class="btn-row">
+          <a href="https://saayeeem.github.io/website/" class="business-btn">Enter My Universe</a>
+          <a href="https://saayeeem.github.io/website/assets/cv/Mohammad_Sayem_Chowdhury_CV.pdf" class="business-btn" download>📄 CV</a>
+        </div>
+        <button class="flip-btn" id="flipBtnFront" aria-label="Show back of card">Flip Card</button>
+        <div class="flip-hint">Tap/click, Enter/Space, or use the Flip button</div>
+      </div>
+      <div class="card-face back">
+        <ul class="contact-list">
+          <li><strong>📧</strong> <a href="mailto:m.sayem.c@gmail.com">m.sayem.c@gmail.com</a></li>
+          <li><strong>🌐</strong> <a href="https://github.com/saayeeem" target="_blank" rel="noopener">saayeeem</a></li>
+          <li><strong>🔗</strong> <a href="https://www.linkedin.com/in/mohammad-sayem-chowdhury" class="linkedin" target="_blank" rel="noopener">mohammad-sayem-chowdhury</a></li>
+          <li><strong>📍</strong> Chattogram, Bangladesh</li>
+        </ul>
+        <div class="qr-section">
+          <img src="Sayem_CV_QR.png" alt="QR Code to Website or CV">
+          <span class="qr-label">Scan for website/CV</span>
+        </div>
+        <button class="flip-btn" id="flipBtnBack" aria-label="Show front of card">Flip Back</button>
+        <div class="flip-hint">Tap/click, Enter/Space, or use the Flip Back button</div>
       </div>
     </div>
   </div>
   <script>
-    // Improved card flip: click/tap or keyboard flips, hover only adds shadow/shake
-    const cardFlip = document.querySelector('.card-flip');
-    const cardInner = document.querySelector('.card-inner');
+    const card = document.getElementById('bizCard');
+    const flipBtnFront = document.getElementById('flipBtnFront');
+    const flipBtnBack = document.getElementById('flipBtnBack');
     let isFlipped = false;
 
-    cardFlip.addEventListener('click', function (e) {
-      // Prevent flipping if selecting text or clicking a link/button
-      if (e.target.tagName === 'A' || e.target.tagName === 'BUTTON') return;
-      isFlipped = !isFlipped;
-      cardFlip.classList.toggle('flipped', isFlipped);
+    function flipCard(forceState) {
+      isFlipped = typeof forceState === 'boolean' ? forceState : !isFlipped;
+      card.classList.toggle('flipped', isFlipped);
+    }
+
+    flipBtnFront.addEventListener('click', e => { flipCard(true); });
+    flipBtnBack.addEventListener('click', e => { flipCard(false); });
+
+    card.addEventListener('click', function(e) {
+      if (e.target.tagName === "A" || e.target.tagName === "BUTTON") return;
+      flipCard();
     });
 
-    // Keyboard accessibility: flip on Enter/Space
-    cardFlip.addEventListener('keydown', function(e) {
+    card.addEventListener('keydown', function(e) {
       if (e.key === 'Enter' || e.key === ' ') {
         e.preventDefault();
-        isFlipped = !isFlipped;
-        cardFlip.classList.toggle('flipped', isFlipped);
+        flipCard();
       }
-    });
-
-    // Add shadow and shake on mouse enter
-    cardFlip.addEventListener('mouseenter', function () {
-      cardInner.style.boxShadow = '0 8px 32px rgba(0,0,0,0.18)';
-      cardInner.animate([
-        { transform: cardInner.style.transform + ' rotateZ(0deg)' },
-        { transform: cardInner.style.transform + ' rotateZ(2deg)' },
-        { transform: cardInner.style.transform + ' rotateZ(-2deg)' },
-        { transform: cardInner.style.transform + ' rotateZ(0deg)' }
-      ], {
-        duration: 350,
-        easing: 'ease-in-out'
-      });
-    });
-    cardFlip.addEventListener('mouseleave', function () {
-      cardInner.style.boxShadow = '';
     });
   </script>
 </body>
