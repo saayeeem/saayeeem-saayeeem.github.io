@@ -222,6 +222,7 @@
       margin-top: 0.4rem;
       text-align: center;
       width: 100%;
+      position: relative;
     }
     .qr-section img {
       width: 58px;
@@ -231,35 +232,70 @@
       background: #fcfcfc;
       display: inline-block;
       border: 2px solid #e0e0e0;
+      cursor: pointer;
+      transition: box-shadow 0.2s;
     }
-    .qr-label {
-      font-size: 0.86rem;
-      color: #6d7480;
-      margin-top: 0.19rem;
-      display: block;
-      letter-spacing: .01em;
+    .qr-section img:hover, .qr-section img:focus {
+      box-shadow: 0 4px 16px rgba(0,81,173,0.18);
     }
-    .icon {
-      display: inline-block;
-      width: 16px;
-      height: 16px;
-      vertical-align: middle;
-      margin-right: 0.18em;
-      background-size: contain;
-      background-repeat: no-repeat;
-      background-position: center;
+    .qr-modal {
+      display: none;
+      position: fixed;
+      z-index: 9999;
+      left: 0; top: 0; right: 0; bottom: 0;
+      width: 100vw; height: 100vh;
+      background: rgba(0,0,0,0.65);
+      justify-content: center;
+      align-items: center;
+      transition: opacity 0.2s;
     }
-    .icon.email {
-      background-image: url('data:image/svg+xml;utf8,<svg fill="%230051AD" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M2.94 4.94A2.5 2.5 0 0 1 5.5 4h9a2.5 2.5 0 0 1 2.56.94L10 11.13 2.94 4.94zM2 6.08V15.5A2.5 2.5 0 0 0 4.5 18h11a2.5 2.5 0 0 0 2.5-2.5V6.08l-7.29 6.86a1 1 0 0 1-1.42 0L2 6.08z"/></svg>');
+    .qr-modal.active {
+      display: flex;
     }
-    .icon.github {
-      background-image: url('data:image/svg+xml;utf8,<svg fill="%230051AD" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 .5C5.73.5.5 5.73.5 12c0 5.08 3.29 9.39 7.86 10.91.58.11.79-.25.79-.56 0-.28-.01-1.02-.02-2-3.2.7-3.88-1.54-3.88-1.54-.53-1.34-1.3-1.7-1.3-1.7-1.06-.72.08-.71.08-.71 1.17.08 1.79 1.2 1.79 1.2 1.04 1.78 2.73 1.27 3.4.97.11-.75.41-1.27.74-1.56-2.56-.29-5.26-1.28-5.26-5.7 0-1.26.45-2.29 1.19-3.1-.12-.29-.52-1.46.11-3.05 0 0 .98-.31 3.2 1.18a11.1 11.1 0 0 1 2.92-.39c.99 0 1.99.13 2.92.39 2.22-1.49 3.2-1.18 3.2-1.18.63 1.59.23 2.76.11 3.05.74.81 1.19 1.84 1.19 3.1 0 4.43-2.7 5.41-5.27 5.7.42.36.79 1.09.79 2.2 0 1.59-.01 2.87-.01 3.26 0 .31.21.67.8.56C20.71 21.39 24 17.08 24 12c0-6.27-5.23-11.5-12-11.5z"/></svg>');
+    .qr-modal-content {
+      background: #fff;
+      border-radius: 1.1rem;
+      padding: 1.2rem 1.2rem 0.7rem 1.2rem;
+      box-shadow: 0 8px 32px rgba(0,81,173,0.22);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      max-width: 92vw;
+      max-height: 92vh;
+      position: relative;
+      animation: qrPop 0.18s cubic-bezier(.4,2,.6,1);
     }
-    .icon.linkedin {
-      background-image: url('https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linkedin/linkedin-original.svg');
+    @keyframes qrPop {
+      0% { transform: scale(0.7); opacity: 0; }
+      100% { transform: scale(1); opacity: 1; }
     }
-    .icon.location {
-      background-image: url('data:image/svg+xml;utf8,<svg fill="%230051AD" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M10 2a6 6 0 0 0-6 6c0 4.42 6 10 6 10s6-5.58 6-10a6 6 0 0 0-6-6zm0 8.5A2.5 2.5 0 1 1 10 5a2.5 2.5 0 0 1 0 5.5z"/></svg>');
+    .qr-modal-content img {
+      width: min(340px, 80vw, 80vh);
+      height: auto;
+      border-radius: 0.5rem;
+      box-shadow: 0 4px 24px rgba(0,81,173,0.18);
+      border: 2px solid #e0e0e0;
+      margin-bottom: 0.7rem;
+      background: #fcfcfc;
+      max-width: 80vw;
+      max-height: 60vh;
+    }
+    .qr-modal-close {
+      position: absolute;
+      top: 0.5rem;
+      right: 0.7rem;
+      background: none;
+      border: none;
+      font-size: 2rem;
+      color: #0051AD;
+      cursor: pointer;
+      z-index: 2;
+      line-height: 1;
+      padding: 0;
+      transition: color 0.15s;
+    }
+    .qr-modal-close:hover, .qr-modal-close:focus {
+      color: #d32f2f;
     }
     @media (max-width: 700px) {
       .scene {
@@ -276,9 +312,19 @@
         max-height: 60vw;
         min-width: 220px;
         min-height: 135px;
+        background: #fff;
+        box-shadow: 0 4px 24px rgba(0,81,173,0.13);
+        border-radius: 1.2rem;
+        padding: 0.5rem 0.5rem;
       }
       .card-face {
-        padding: 1rem 0.5rem;
+        padding: 1.2rem 0.7rem;
+        border-radius: 1.1rem;
+      }
+      .qr-modal-content img {
+        width: min(90vw, 90vh, 320px);
+        max-width: 90vw;
+        max-height: 60vh;
       }
     }
     @media (max-width: 500px) {
@@ -290,12 +336,23 @@
         max-width: 355px;
         max-height: 192px;
       }
-      .card-face { padding: 0.7rem 0.3rem; }
+      .card {
+        background: #fff;
+        box-shadow: 0 4px 24px rgba(0,81,173,0.13);
+        border-radius: 1.2rem;
+        padding: 0.3rem 0.3rem;
+      }
+      .card-face { padding: 0.9rem 0.4rem; border-radius: 1.1rem; }
       .avatar { width: 48px; height: 48px;}
       .name { font-size: 1.01rem;}
       .desc { font-size: 0.89rem;}
       .title { font-size: 0.87rem;}
       .business-btn, .flip-btn { font-size: 0.89rem; padding: 0.31rem 0.8rem;}
+      .qr-modal-content img {
+        width: min(96vw, 96vh, 220px);
+        max-width: 96vw;
+        max-height: 50vh;
+      }
     }
   </style>
 </head>
@@ -320,8 +377,15 @@
           <li><span class="icon location"></span> Chattogram, Bangladesh</li>
         </ul>
         <div class="qr-section">
-          <img src="Sayem_CV_QR.png" alt="QR Code to Website or CV">
+          <img src="Sayem_CV_QR.png" alt="QR Code to Website or CV" id="qrSmall" tabindex="0" aria-label="Show QR code larger">
           <span class="qr-label">Scan for CV/website</span>
+        </div>
+        <div class="qr-modal" id="qrModal" aria-modal="true" role="dialog" tabindex="-1">
+          <div class="qr-modal-content">
+            <button class="qr-modal-close" id="qrModalClose" aria-label="Close QR code">&times;</button>
+            <img src="Sayem_CV_QR.png" alt="QR Code to Website or CV (large)">
+            <span class="qr-label">Scan for CV/website</span>
+          </div>
         </div>
         <div class="btn-row">
           <a href="https://saayeeem.github.io/website/" class="business-btn">See My Website</a>
@@ -354,6 +418,36 @@
       if (window.matchMedia('(hover: hover)').matches) {
         isFlipped = false;
         card.classList.remove('flipped');
+      }
+    });
+
+    // QR enlarge modal logic
+    const qrSmall = document.getElementById('qrSmall');
+    const qrModal = document.getElementById('qrModal');
+    const qrModalClose = document.getElementById('qrModalClose');
+    function openQRModal() {
+      qrModal.classList.add('active');
+      qrModal.focus();
+      document.body.style.overflow = 'hidden';
+    }
+    function closeQRModal() {
+      qrModal.classList.remove('active');
+      document.body.style.overflow = '';
+    }
+    qrSmall.addEventListener('click', openQRModal);
+    qrSmall.addEventListener('keydown', function(e) {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        openQRModal();
+      }
+    });
+    qrModalClose.addEventListener('click', closeQRModal);
+    qrModal.addEventListener('click', function(e) {
+      if (e.target === qrModal) closeQRModal();
+    });
+    document.addEventListener('keydown', function(e) {
+      if (qrModal.classList.contains('active') && (e.key === 'Escape' || e.key === 'Esc')) {
+        closeQRModal();
       }
     });
   </script>
